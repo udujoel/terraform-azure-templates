@@ -1,5 +1,6 @@
 #Create Storage account
 resource "azurerm_storage_account" "storage_account" {
+    
   name                  = var.storage_account
   resource_group_name   = azurerm_resource_group.resource_group.name
   location              = var.location

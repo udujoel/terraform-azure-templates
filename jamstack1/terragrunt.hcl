@@ -3,6 +3,7 @@ locals {
   container_name       = get_env("ARM_STORAGE_ACCOUNT_CONTAINER")
 }
 
+
 remote_state {
   # https://www.terraform.io/docs/backends/types/azurerm.html
   backend = "azurerm"

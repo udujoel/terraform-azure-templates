@@ -1,6 +1,4 @@
 
-
-
 # create a random string for CDN endpoint name to avoid name conflicts
 resource "random_string" "unique" {
   length  = 8
@@ -16,17 +14,22 @@ resource "azurerm_cdn_profile" "cdn_profile" {
   sku                 = "Standard_Microsoft"
 }
 
+data "azurerm_storage_account" "storage_account" {
+  name                = var.storage_account
+  resource_group_name = var.resource_group
+}
+
 #create cdn endpoint
 resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   name                = random_string.unique.result
   profile_name        = azurerm_cdn_profile.cdn_profile.name
   location            = var.location
   resource_group_name = var.resource_group
-  origin_host_header  = azurerm_storage_account.storage_account.primary_web_host
+  origin_host_header  = data.azurerm_storage_account.storage_account.primary_web_host
 
   origin {
     name      = "endpoint"
-    host_name = azurerm_storage_account.storage_account.primary_web_host
+    host_name = data.azurerm_storage_account.storage_account.primary_web_host
   }
 
   delivery_rule {

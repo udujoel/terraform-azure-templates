@@ -1,3 +1,6 @@
+dependency "mysql" {
+  config_path = "../resource_group"
+}
 
 locals {
   env_vars        = read_terragrunt_config(find_in_parent_folders("env.hcl"))
@@ -17,7 +20,7 @@ terraform {
 }
 
 inputs = {
-  name            = local.name
-  location        = local.location
-  resource_group  = local.resource_group
+  storage_account     = "${replace(local.name, "-","")}"
+  location            = local.location
+  resource_group      = local.resource_group
 }

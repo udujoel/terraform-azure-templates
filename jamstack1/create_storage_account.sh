@@ -24,5 +24,8 @@ echo "access_key: $ACCOUNT_KEY"
 export ARM_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME
 export ARM_STORAGE_ACCOUNT_CONTAINER=$CONTAINER_NAME
 export ARM_ACCESS_KEY=$ACCOUNT_KEY
-
+echo
+echo
 echo "_______________________COMPLETED SUCCESSFULLY________________________________"
+echo
+echo

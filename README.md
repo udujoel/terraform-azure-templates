@@ -65,7 +65,26 @@ Table of Contents
 
 
 ## sharing variables 
+Use the shared.hcl and env.hcl to share variables between environments for consistency. 
+```gherkin= 
+#shared.hcl
+locals {
+    org_name        =    ""
+    dept_prefix     =    ""
+    location        =    ""
+}
 
+```
+
+```gherkin=
+#env.hcl
+locals {
+  shared_vars = read_terragrunt_config(find_in_parent_folders("shared.hcl"))
+
+  name   = "${local.shared_vars.locals.name}-staging"
+  location = local.shared_vars.locals.location
+}
+```
 
 ## Configure storage account
 
@@ -94,6 +113,18 @@ export ARM_ACCESS_KEY=<storage-account-key>
 ```
 
 ## Terraform|Terragrunt Init, Plan, Apply, Destroy
+Terragunt by Gruntwork.io is a thin wrapper around Terraform that fills the cracks where terraform overlooks. 
+
+Below are equivalent commands and more:
+
+
+| Terraform | Terragrunt | outcome |
+| -------- | -------- | -------- |
+| terraform init     | auto     | downloads and initializes tf providers     |
+|terraform plan| terragrunt plan| view effect of current IaC definition|
+||terragrunt run-all plan|execute *terragrunt plan* on all sub folders|
+|terraform apply|terragrunt apply|execute the actions defined by IaC|
+||terragrunt run-all apply|execute *terragrun apply* on all sub folders|
 
 
 ## why use Terragrunt in Azure

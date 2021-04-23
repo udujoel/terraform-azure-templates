@@ -9,8 +9,8 @@ locals {
 
   name            = local.env_vars.locals.name
   location        = local.env_vars.locals.location
-  // resource_group  = "${local.env_vars.locals.name}-RG"
-  domain          = "contoso.com"
+  resource_group  = "${local.env_vars.locals.name}-RG"
+  domain          = "gritty.42web.io"
 }
 
 include {
@@ -24,8 +24,8 @@ terraform {
 
 inputs = {
   domain          = local.domain
-  resource_group  = dependency.resource_group
+  resource_group  = local.resource_group
   location        = local.location
-  storage_account = local.name
+  storage_account = "${replace(local.name, "-","")}"
 
 }

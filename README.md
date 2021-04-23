@@ -30,42 +30,6 @@ Table of Contents
 
 ### JAMSTACK I
 
-📦jamstack1
-┣━ 📂modules
-┃ ┣━ 📂data-storage
-┃ ┃ ┣━ 📜index.html
-┃ ┃ ┣━ 📜main.tf
-┃ ┃ ┗━ 📜var.tf
-┃ ┣━ 📂network
-┃ ┃ ┣━ 📜main.tf
-┃ ┃ ┗━ 📜var.tf
-┃ ┣━ 📂resource_group
-┃ ┃ ┣━ 📜main.tf
-┃ ┃ ┣━ 📜output.tf
-┃ ┃ ┗━ 📜vars.tf
-┃ ┗━ 📂services
-┃ ┃ ┣━ 📜main.tf
-┃ ┃ ┣━ 📜outputs.tf
-┃ ┃ ┗━ 📜vars.tf
-┣━ 📂production
-┃ ┣━ 📂data-storage
-┃ ┣━ 📂network
-┃ ┣━ 📂services
-┃ ┃ ┣━ 📜main.tf
-┃ ┃ ┣━ 📜outputs.tf
-┃ ┃ ┗━ 📜vars.tf
-┃ ┗━ 📜env.hcl
-┣━ 📂staging
-┃ ┣━ 📂data-storage
-┃ ┣━ 📂network
-┃ ┣━ 📂resource_group
-┃ ┣━ 📂services
-┃ ┃ ┗━ 📜terragrunt.hcl
-┃ ┗━ 📜env.hcl
-┣━ 📜create_storage_account.sh
-┣━ 📜shared.hcl
-┗━ 📜terragrunt.hcl
-
 ## sharing variables
 
 Use the shared.hcl and env.hcl to share variables between environments for consistency.

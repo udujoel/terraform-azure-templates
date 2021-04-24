@@ -1,4 +1,4 @@
-dependency "mysql" {
+dependency "resource_group" {
   config_path = "../resource_group"
 }
 

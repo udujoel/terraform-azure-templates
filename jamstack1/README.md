@@ -78,4 +78,35 @@ terragrunt destroy
 ```
 
 
+## the Modules
+
+#### Resource_group
+This module requires 2 inputs when called:
+- resource group name
+- location
+and outputes 
+- the name of the created resource group
+The resource_group is the first resource to be created as it holds the rest of the other resources by design. Every other resource depends on it.
+#### Data_storage
+This creates all backend services needed. It takes 3 inputs:
+- resource_group name
+- storage_account name
+- location
+and outputs
+- created storage account's name
+- static_website_url
+
+The data_storage contains a sample 'index.html' site that will be uploaded as a dummy website when the backend is created.
+This module depends on the resource_group and is depended upon by the services module.
+#### Services
+This creates other needed services on Azure. It takes 4 inputs:
+- resource_group
+- storage_account
+- location
+- domain name
+and outputs
+- static_website_cdn_endpoint_hostname
+- static_website_cdn_profile_name
+
+This module depends on the resource_group, and starts creation after the data-storage
 

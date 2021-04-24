@@ -1,9 +1,10 @@
+// ensure the resource group is created first
 dependency "resource_group" {
   config_path = "../resource_group"
 }
 
 
-
+// import/create your local variables
 locals {
   env_vars        = read_terragrunt_config(find_in_parent_folders("env.hcl"))
 
@@ -17,6 +18,8 @@ include {
   path            = find_in_parent_folders()
 }
 
+
+// call your module
 terraform {
   source          = "../../modules/services"
   

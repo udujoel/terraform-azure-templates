@@ -17,7 +17,7 @@ terraform {
 }
 
 inputs = {
-  name            = local.name
+  
   location        = local.location
   resource_group  = local.resource_group
 }

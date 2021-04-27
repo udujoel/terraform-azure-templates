@@ -1,3 +1,12 @@
+variable "domain" {
+    type = string
+    description = "Site domain name"
+}
+variable "location" {
+    type = string
+    description = "Location of resources"
+}
+
 variable "resource_group" {
     type = string
     description = "resource group name"

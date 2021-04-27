@@ -30,5 +30,8 @@ inputs = {
   resource_group  = local.resource_group
   location        = local.location
   storage_account = "${replace(local.name, "-","")}"
+  service_plan_name = "${replace(local.name, "-","")}-service_plan"
+  sku_tier        = "standard"
+  sku_size        = "s1"
 
 }

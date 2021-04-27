@@ -1,12 +1,18 @@
 
-# create a random string for CDN endpoint name to avoid name conflicts
+// create a random string for CDN endpoint name to avoid name conflicts
 resource "random_string" "unique" {
   length  = 8
   special = false
   upper   = false
 }
 
-#create cdn profile
+// get storage account data
+data "azurerm_storage_account" "storage_account" {
+  name                = var.storage_account
+  resource_group_name = var.resource_group
+}
+
+// create cdn profile
 resource "azurerm_cdn_profile" "cdn_profile" {
   name                = "cdn-profile"
   location            = var.location
@@ -14,12 +20,8 @@ resource "azurerm_cdn_profile" "cdn_profile" {
   sku                 = "Standard_Microsoft"
 }
 
-data "azurerm_storage_account" "storage_account" {
-  name                = var.storage_account
-  resource_group_name = var.resource_group
-}
 
-#create cdn endpoint
+// create cdn endpoint
 resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   name                = random_string.unique.result
   profile_name        = azurerm_cdn_profile.cdn_profile.name
@@ -49,13 +51,14 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
 }
 
 
-#configure Custom domain
 
+// configure Custom domain
 resource "azurerm_dns_zone" "dns_zone" {
   name                = var.domain
   resource_group_name = var.resource_group
 }
 
+// create cname record
 resource "azurerm_dns_cname_record" "cname" {
   name                = "www"
   zone_name           = azurerm_dns_zone.dns_zone.name

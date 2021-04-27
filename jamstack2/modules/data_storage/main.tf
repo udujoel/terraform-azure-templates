@@ -1,3 +1,5 @@
+
+
 #Create Storage account
 resource "azurerm_storage_account" "storage_account" {
 
@@ -24,3 +26,5 @@ resource "azurerm_storage_blob" "blob" {
   content_type           = "text/html"
   source                 = "index.html"
 }
+
+// Azure CosmoDB

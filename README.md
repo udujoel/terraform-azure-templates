@@ -626,5 +626,9 @@ Azure Storage blobs are automatically locked before any operation that writes st
 ## Architecture diagrams
 
 JAMSTACK (SERVERLESS):
+![](https://i.imgur.com/bEuSoMF.png)
+
 
 JAMSTACK (App Service Web App)
+![](https://i.imgur.com/Ijkb751.png)
+

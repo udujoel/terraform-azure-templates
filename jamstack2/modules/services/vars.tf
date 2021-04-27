@@ -1,10 +1,6 @@
-variable "resource_group_name" {
+variable "resource_group" {
     type = string
-    description = ""
-}
-variable "environment" {
-    type = string
-    description = "Name of Environment"
+    description = "resource group name"
 }
 
 variable "service_plan_name" {

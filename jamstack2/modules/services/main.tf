@@ -16,7 +16,6 @@ resource "azurerm_app_service_plan" "app_service_plan" {
     }
 
     tags {
-        environment     = var.environment
         service         = "App Service"
         component       ="App Service Plan"
     }

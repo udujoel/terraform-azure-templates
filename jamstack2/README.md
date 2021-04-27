@@ -121,7 +121,11 @@ It takes [4] inputs:
 - resource_group
 - storage_account
 - location
-- domain name
+- environment
+- service_plan_name
+- sku_tier
+- size_tier
+
 and outputs
 - static_website_cdn_endpoint_hostname
 - static_website_cdn_profile_name

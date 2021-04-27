@@ -107,3 +107,524 @@ Data stored in an Azure blob is encrypted before being persisted. When needed, T
 Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents concurrent state operations, which can cause corruption.
 
 ---
+## REFERENCE DOCUMENT
+
+
+## **Infrastructure Deployment Strategies (Azure)**
+
+
+<table>
+  <tr>
+   <td colspan="3" >
+<h2><strong>Deployment Strategies</strong></h2>
+
+
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td><strong>Architecture</strong>
+   </td>
+   <td><strong>Azure Services</strong>
+   </td>
+   <td><strong>AWS Services</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+1</p>
+
+   </td>
+   <td>
+<h3><strong>JAMSTACK I</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Storage Account (Blob Storage)
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>Resource Group
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+2</p>
+
+   </td>
+   <td>
+<h3><strong>JAMSTACK (Azure App Service)II</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>App Service Plan
+
+<li>App Service Web App
+
+<li>Azure Blob Storage
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>SQL/CosmoDB
+
+<li>Azure Key Vault
+
+<li>Resource Group
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM 
+
+<li>API Gateway 
+
+<li>LAMBDA
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+3</p>
+
+   </td>
+   <td>
+<h3><strong>JAMSTACK (Serverless) III</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Azure Functions
+
+<li>CosmoDB/SQL 
+
+<li>Azure CDN 
+
+<li>Azure API Management Services
+
+<li>Resource group
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM 
+
+<li>API Gateway 
+
+<li>LAMBDA 
+
+<li>RDS (or DynamoDB)
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+4</p>
+
+   </td>
+   <td>
+<h3><strong>Containers (with rolling update capacity) </strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Storage Account (Blob Storage)
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>Azure Key Vault Certificate
+
+<li>Container Instance
+
+<li>ACR
+
+<li>Azure CDN
+
+<li>Azure Key Vault Certificates 
+
+<li>Loadbalancer 
+
+<li>CosmoDB
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM
+
+<li>ECS (Fargate) 
+
+<li>ECR 
+
+<li>Cloudfront 
+
+<li>ACM 
+
+<li>Loadbalancer 
+
+<li>RDS (or DynamoDB)
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+5</p>
+
+   </td>
+   <td>
+<h3><strong>Containers (with rolling update capacity and high availability)</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Storage Account (Blob Storage)
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>Azure Key Vault Certificate
+
+<li>AKS
+
+<li>ACR
+
+<li>CosmoDB
+
+<li>Loadbalancer
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM
+
+<li>EKS 
+
+<li>ECR 
+
+<li>Cloudfront 
+
+<li>ACM 
+
+<li>RDS (or DynamoDB)
+
+<li>Loadbalancer
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+6</p>
+
+   </td>
+   <td>
+<h3><strong>VMs</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Storage Account (Blob Storage)
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>Azure Key Vault Certificate
+
+<li>Azure VM
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM
+
+<li>EC2
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+7</p>
+
+   </td>
+   <td>
+<h3><strong>VMs (with rolling update capacity, high availability, immutable infrastructure)</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Storage Account (Blob Storage)
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>Azure Key Vault Certificate
+
+<li>Azure VMSS
+
+<li>Loadbalancer 
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM
+
+<li>EC2 
+
+<li>Autoscaling groups,
+
+<li>Loadbalancer 
+
+<li>AMIs
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+8</p>
+
+   </td>
+   <td>
+<h3><strong>(Serverless) Azure App Service </strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Storage Account (Blob Storage)
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>Azure Key Vault Certificates
+
+<li>Azure App Service
+
+<li>CosmoDB
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM
+
+<li>Elastic BeanStalk
+
+<li>RDS (or DynamoDB)
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+9</p>
+
+   </td>
+   <td>
+<h3><strong>De-coupled (Serverless)</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>App Service Plan 
+
+<li>Azure Functions
+
+<li>Azure API Management Services
+
+<li>Azure CDN 
+
+<li>Azure DNS 
+
+<li>Azure Service Bus 
+
+<li>Azure Front Door/ Azure Traffic Manager
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3 
+
+<li>CloudFront 
+
+<li>Route 53 
+
+<li>ACM 
+
+<li>API Gateway 
+
+<li>LAMBDA
+
+<li>SQS
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: right">
+10</p>
+
+   </td>
+   <td>
+<h3><strong>De-coupled (VMs)</strong></h3>
+
+
+   </td>
+   <td>
+<ul>
+
+<li>Storage Account (Blob Storage)
+
+<li>Azure CDN
+
+<li>Azure DNS
+
+<li>Azure Key Vault Certificates
+
+<li>VMSS
+
+<li>Loadbalancer 
+
+<li>Azure Service Bus 
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+
+<li>S3
+
+<li>CloudFront
+
+<li>Route 53
+
+<li>ACM
+
+<li>EC2
+
+<li>Autoscaling groups
+
+<li>Loadbalancer 
+
+<li>AMIs
+
+<li>SQS
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+
+
+## Architecture diagrams
+
+JAMSTACK (SERVERLESS):
+
+JAMSTACK (App Service Web App)

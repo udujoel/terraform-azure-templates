@@ -131,4 +131,3 @@ and outputs
 - static_website_cdn_profile_name
 
 This module depends on the resource_group, and starts creation after the data-storage
-

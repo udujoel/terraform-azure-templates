@@ -1,6 +1,7 @@
 // ensure the resource group is created first
 dependency "resource_group" {
   config_path = "../resource_group"
+  skip_outputs    = true
 }
 
 
@@ -26,6 +27,7 @@ terraform {
 }
 
 inputs = {
+  name            = local.name
   domain          = local.domain
   resource_group  = local.resource_group
   location        = local.location

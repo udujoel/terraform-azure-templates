@@ -1,5 +1,6 @@
 dependency "resource_group" {
   config_path = "../resource_group"
+  skip_outputs    = true
 }
 
 locals {

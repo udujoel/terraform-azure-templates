@@ -1,3 +1,11 @@
+variable "name" {
+    type = string
+    description = "Name"
+}
+variable "storage_account" {
+    type = string
+    description = "storage account name"
+}
 variable "domain" {
     type = string
     description = "Site domain name"

@@ -8,7 +8,7 @@ output "app_service_name"{
     value = azurerm_app_service.app_service.name
 }
 output "resource_group"{
-    value = azurerm_resource_group.resource_group.name
+    value = data.azurerm_resource_group.resource_group
 }
 
 output "id" {

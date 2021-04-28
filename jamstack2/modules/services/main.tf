@@ -10,6 +10,12 @@ data "azurerm_resource_group" "resource_group" {
     name    = var.resource_group
 }
 
+// get storage account data
+data "azurerm_storage_account" "storage_account" {
+  name                = var.storage_account
+  resource_group_name = var.resource_group
+}
+
 // Get tenant_id, subscription_id or client_id
 data "azurerm_client_config" "current" {}
 
@@ -17,8 +23,8 @@ data "azurerm_client_config" "current" {}
 // App Servie Plan
 resource "azurerm_app_service_plan" "app_service_plan" {
     name                = var.service_plan_name
-    location            = data.azurerm_resource_group.resource_group.location
-    resource_group_name = data.azurerm_resource_group.resource_group.name
+    location            = var.location
+    resource_group_name = var.resource_group
     kind                = "app"
 
     sku {
@@ -31,9 +37,9 @@ resource "azurerm_app_service_plan" "app_service_plan" {
 // Azure App Service Web
 resource "azurerm_app_service" "app_service" {
   name                = "${var.name}-appservice"
-  location            = azurerm_resource_group.app_service.location
-  resource_group_name = azurerm_resource_group.app_service.name
-  app_service_plan_id = azurerm_app_service_plan.app_service.id
+  location            = var.location
+  resource_group_name = var.resource_group
+  app_service_plan_id = azurerm_app_service_plan.app_service_plan.id
 }
 
 
@@ -96,9 +102,9 @@ resource "azurerm_dns_cname_record" "cname" {
 
 // Azure Key Vault
 resource "azurerm_key_vault" "key_vault" {
-  name                        = "key_vaultkeyvault"
-  location                    = azurerm_resource_group.key_vault.location
-  resource_group_name         = azurerm_resource_group.key_vault.name
+  name                        = "key-vault"
+  location                    = var.location
+  resource_group_name         = var.resource_group
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
 

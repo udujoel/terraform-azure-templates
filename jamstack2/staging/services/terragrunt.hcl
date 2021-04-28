@@ -4,8 +4,7 @@ dependency "resource_group" {
   skip_outputs    = true
 }
 # ensure data_storage services are created first
-dependency "data_storage
-" {
+dependency "data_storage" {
   config_path = "../data_storage"
   skip_outputs    = true
 }

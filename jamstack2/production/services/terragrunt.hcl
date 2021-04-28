@@ -3,6 +3,11 @@ dependency "resource_group" {
   config_path = "../resource_group"
   skip_outputs    = true
 }
+// ensure the resource group is created first
+dependency "data_storage" {
+  config_path = "../data_storage"
+  skip_outputs    = true
+}
 
 
 // import/create your local variables

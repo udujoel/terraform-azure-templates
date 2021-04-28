@@ -16,7 +16,7 @@ include {
 }
 
 terraform {
-  source          = "../../modules/data_storage"
+  source          = "../..//modules/data_storage"
   
 }
 

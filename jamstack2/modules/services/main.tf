@@ -102,7 +102,7 @@ resource "azurerm_dns_cname_record" "cname" {
 
 // Azure Key Vault
 resource "azurerm_key_vault" "key_vault" {
-  name                        = "key-vault"
+  name                        = "${random_string.unique.result}-key-vault"
   location                    = var.location
   resource_group_name         = var.resource_group
   enabled_for_disk_encryption = true

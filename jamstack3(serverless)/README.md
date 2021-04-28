@@ -3,19 +3,22 @@ title: 'Azure IAC Library documentation'
 Author: Joell Udu (udujoel@Gmail.com)
 ---
 
-JAMSTACK II
+JAMSTACK III (Serverless)
 ===
 
 [TOC]
 
 ## Services
 This template will deploy these services:
-- Storage Account (Blob Storage)
-- Azure CDN
-- Azure DNS
-- Resource Group
-- App Service Web app
-- App Service Plan
+- Azure Functions
+- CosmoDB/SQL 
+- Azure CDN 
+- Azure API Management Services
+- Resource group
+  and 
+- Azure Application Insight (for monitoring).
+
+
 
 ## Prerequisites
 - Azure CLI
@@ -24,7 +27,7 @@ This template will deploy these services:
 - terraform 
 
 ## Architecture Diagram
-![](https://i.imgur.com/QBzJpXT.png)
+![](https://i.imgur.com/pzkWXlT.png)
 
 
 ## Executing project

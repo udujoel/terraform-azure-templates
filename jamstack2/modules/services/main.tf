@@ -19,7 +19,9 @@ data "azurerm_storage_account" "storage_account" {
 // Get tenant_id, subscription_id or client_id
 data "azurerm_client_config" "current" {}
 
-
+//=====================================================================================================================
+// Azure App Service Plan for web apps
+//=====================================================================================================================
 // App Servie Plan
 resource "azurerm_app_service_plan" "app_service_plan" {
     name                = var.service_plan_name
@@ -43,9 +45,10 @@ resource "azurerm_app_service" "app_service" {
 }
 
 
-
+//=====================================================================================================================
 // Azure CDN
-// 1. create cdn profile
+//=====================================================================================================================
+// create cdn profile
 resource "azurerm_cdn_profile" "cdn_profile" {
   name                = "cdn-profile"
   location            = var.location
@@ -54,7 +57,7 @@ resource "azurerm_cdn_profile" "cdn_profile" {
 }
 
 
-// 2. create cdn endpoint
+// create cdn endpoint
 resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   name                = random_string.unique.result
   profile_name        = azurerm_cdn_profile.cdn_profile.name
@@ -83,15 +86,16 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   }
 }
 
-
+//=====================================================================================================================
 // Azure DNS
-// 1. configure Custom domain
+//=====================================================================================================================
+// configure Custom domain
 resource "azurerm_dns_zone" "dns_zone" {
   name                = var.domain
   resource_group_name = var.resource_group
 }
 
-// 2. create cname record
+// create cname record
 resource "azurerm_dns_cname_record" "cname" {
   name                = "www"
   zone_name           = azurerm_dns_zone.dns_zone.name
@@ -100,6 +104,9 @@ resource "azurerm_dns_cname_record" "cname" {
   target_resource_id  = azurerm_cdn_endpoint.cdn_endpoint.id
 }
 
+//=====================================================================================================================
+// Azure Key Vault
+//=====================================================================================================================
 // Azure Key Vault
 resource "azurerm_key_vault" "key_vault" {
   name                        = "${random_string.unique.result}-key-vault"

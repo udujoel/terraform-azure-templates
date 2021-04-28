@@ -9,6 +9,7 @@ locals {
   name            = local.env_vars.locals.name
   location        = local.env_vars.locals.location
   resource_group  = "${local.env_vars.locals.name}-RG"
+  failover_location = local.env_vars.locals.failover_location
 }
 
 include {
@@ -24,4 +25,5 @@ inputs = {
   storage_account     = "${replace(local.name, "-","")}"
   location            = local.location
   resource_group      = local.resource_group
+  failover_location   = local.failover_location
 }

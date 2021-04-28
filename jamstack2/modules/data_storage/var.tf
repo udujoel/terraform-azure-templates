@@ -11,3 +11,7 @@ variable "resource_group" {
   description = "Resource Group Name"
 }
 
+variable "failover_location" {
+  type = string
+  description = "failover location for cosmodb"
+}

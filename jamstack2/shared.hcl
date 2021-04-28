@@ -4,4 +4,5 @@
 locals {
   name   = "telios"
   location = "eastus"
+  failover_location = "westus"
 }

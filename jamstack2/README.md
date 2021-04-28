@@ -16,6 +16,8 @@ This template will deploy these services:
 - Resource Group
 - App Service Web app
 - App Service Plan
+- Key Vault
+- CosmoDB
 
 ## Prerequisites
 - Azure CLI
@@ -99,13 +101,17 @@ This creates all backend services needed. It deployes:
 - Azure Blob Storage
 - CosmoDB
 
- This module takes [3] inputs:
-- resource_group name
-- storage_account name
+ This module takes 4 inputs:
+- resource_group
+- storage_account
 - location
+- failover_location
 and outputs
-- created storage account's name
+- storage account name
 - static_website_url
+- cosmodb_account name
+- cosmodb_sqldb name
+- cosmodb_sql collection name
 
 This module depends on the resource_group and is depended upon by the services module.
 #### Services
@@ -115,13 +121,11 @@ This creates other needed services on Azure. It deploys:
 - Azure CDN
 - Azure DNS
 
-
-
-It takes [4] inputs:
+It takes these inputs:
+- domain name
 - resource_group
-- storage_account
+- storage_account_name
 - location
-- environment
 - service_plan_name
 - sku_tier
 - size_tier

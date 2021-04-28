@@ -1,4 +1,5 @@
 
+
 // create a random string for CDN endpoint name to avoid name conflicts
 resource "random_string" "unique" {
   length  = 8
@@ -12,6 +13,9 @@ data "azurerm_storage_account" "storage_account" {
   resource_group_name = var.resource_group
 }
 
+//=====================================================================================================================
+// Azure CDN
+//=====================================================================================================================
 // create cdn profile
 resource "azurerm_cdn_profile" "cdn_profile" {
   name                = "cdn-profile"
@@ -50,7 +54,9 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   }
 }
 
-
+//=====================================================================================================================
+// Azure DNS
+//=====================================================================================================================
 
 // configure Custom domain
 resource "azurerm_dns_zone" "dns_zone" {

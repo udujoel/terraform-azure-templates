@@ -20,15 +20,19 @@ Table of Contents
 - [terraform](https://www.terraform.io/downloads.html)
 - [terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/install/)
 
-## Tech-stacks
 
 ### Architecture
 
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_a49b1c0a13f113b7792e4e1ba40acd17.png)
 
 ## layout of files
+## Tech-stacks
 
 ### JAMSTACK I
+
+### JAMSTACK II
+### JAMSTACK III (Serverless)
+
 
 ## sharing variables
 
@@ -96,6 +100,8 @@ Below are equivalent commands and more:
 | terraform apply | terragrunt apply         | execute the actions defined by IaC           |
 |                 | terragrunt run-all apply | execute _terragrun apply_ on all sub folders |
 
+## What is Terragrunt
+Terragrunt is a thin wrapper around Terraform with the expressed intent of making your Terrform configurations and codes DRY.
 ## why use Terragrunt in Azure
 
 ### [Encryption at rest](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage#encryption-at-rest)
@@ -106,6 +112,26 @@ Data stored in an Azure blob is encrypted before being persisted. When needed, T
 
 Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents concurrent state operations, which can cause corruption.
 
+### Apply DRY principle in your IaC
+With terraform, one would have to copy/paste the provider configuration in each of your Terraform modules. Terragrunt enables us to apply the DRY principle with our provider configuration. You only have to write the configuration once and be able to reuse it in the parent as well as all child modules.  Although the Provider block isn’t a lot of lines of code but can be a pain to maintain. 
+
+In the root `terragrunt.hcl` file, you would define the provider configuration using the generate block. 
+
+### Keeping Remote configurations DRY
+Terraform backends allow you to store Terraform state in a shared location which is great for teamwork and collaboration. This can be a Blob container. Terraform provides locking around your state files to protect against race conditions.
+
+In Terraform, however, you have to copy/paste the same backend configuration into every one of your Terraform modules. To Resolve this issue terragrunt come up with a great feature where you will write backend configuration once and use it multiple times.
+
+
+Terragrunt also helps Execute Terraform commands on multiple modules at once.
+```bash=
+terragrunt run-all init
+terragrunt run-all plan
+terragrunt run-all output
+terragrunt run-all apply
+terragrunt run-all destroy
+
+```
 ---
 ## REFERENCE DOCUMENT
 

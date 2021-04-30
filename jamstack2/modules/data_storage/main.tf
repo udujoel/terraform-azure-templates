@@ -62,8 +62,8 @@ resource "azurerm_cosmosdb_account" "db" {
 
   consistency_policy {
     consistency_level       = "BoundedStaleness"
-    max_interval_in_seconds = 10
-    max_staleness_prefix    = 200
+    max_interval_in_seconds = 600
+    max_staleness_prefix    = 100000
   }
 
   geo_location {
@@ -88,8 +88,8 @@ resource "azurerm_cosmosdb_sql_database" "db" {
 resource "azurerm_cosmosdb_sql_container" "container" {
   name                  = "container-${random_integer.unique.result}"
   resource_group_name   = var.resource_group
-  account_name          = azurerm_cosmosdb_account.container.name
-  database_name         = azurerm_cosmosdb_sql_database.container.name
+  account_name          = azurerm_cosmosdb_account.db.name
+  database_name         = azurerm_cosmosdb_sql_database.db.name
   partition_key_path    = "/definition/id"
   partition_key_version = 1
   throughput            = 400

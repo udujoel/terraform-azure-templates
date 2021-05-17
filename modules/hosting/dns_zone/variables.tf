@@ -1,8 +1,4 @@
 ====================================================
-variable "location" {
-  description = "The Azure region for resources"
-  type        = string
-}
 
 variable "resource_group" {
   description = "The Azure resource group name for resources"
@@ -11,14 +7,8 @@ variable "resource_group" {
 
 
 =====================CORE===========================
-variable "storage_account" {
+variable "domain" {
   type        = string
-  description = "Storage Account Name"
-}
-
-variable "profile_name" {
-  type        = string
-  default     = "cdn-profile"
-  description = "Profile Name"
+  description = "Top level Domain Name"
 }
 

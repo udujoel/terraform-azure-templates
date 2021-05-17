@@ -1,7 +1,7 @@
 //=====================================================================================================================
-// Azure Blob Storage
+// Azure Storage Account
 //=====================================================================================================================
-#Create Storage account
+
 resource "azurerm_storage_account" "storage_account" {
 
   name                     = var.storage_account

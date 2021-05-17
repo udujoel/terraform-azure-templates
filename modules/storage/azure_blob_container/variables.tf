@@ -14,7 +14,7 @@ variable "name" {
 variable "access_type" {
   type        = string
   default     = "private"
-  description = "Container Access Type"
+  description = "Container Access Type: blob/container/private"
 }
 
 

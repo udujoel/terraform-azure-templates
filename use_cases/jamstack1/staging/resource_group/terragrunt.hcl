@@ -12,7 +12,7 @@ include {
 }
 
 terraform {
-  source          = "../../..//modules/general/resource_group"
+  source          = ""
   
 }
 

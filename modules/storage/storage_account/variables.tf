@@ -1,4 +1,4 @@
-=====================CORE===========================
+// =====================CORE===========================
 variable "storage_account" {
   type        = string
   description = "Storage Account Name"
@@ -13,7 +13,7 @@ variable "resource_group" {
   description = "Resource Group Name"
 }
 
-======================Optional=======================
+// ======================Optional=======================
 variable "tier" {
   type        = string
   default     = "Standard"

@@ -1,11 +1,11 @@
-=====================CORE===========================
-variable "storage_account_name" {
+// =====================CORE===========================
+variable "storage_account" {
   type        = string
   description = "Storage Account Name"
 }
 
 
-======================Optional=======================
+// ======================Optional=======================
 variable "file_name" {
   type        = string
   default     = "index.html"
@@ -28,7 +28,7 @@ variable "content_type" {
 }
 variable "access_tier" {
   type        = string
-  default     = "text/html"
+  default     = "Hot"
   description = "Access Tier: 'Archive'/'Cool'/'Hot'"
 }
 

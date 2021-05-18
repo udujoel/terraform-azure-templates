@@ -1,3 +1,8 @@
+dependency "resource_group" {
+  config_path = "../resource_group"
+  skip_outputs    = true
+
+}
 
 locals {
   env_vars        = read_terragrunt_config(find_in_parent_folders("env.hcl"))
@@ -12,12 +17,12 @@ include {
 }
 
 terraform {
-  source          = "../../modules/resource_group"
+  source          = "../../../modules/data_storage"
   
 }
 
 inputs = {
-  name            = local.name
-  location        = local.location
-  resource_group  = local.resource_group
+  storage_account     = "${replace(local.name, "-","")}"
+  location            = local.location
+  resource_group      = local.resource_group
 }

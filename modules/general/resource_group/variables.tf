@@ -1,4 +1,4 @@
-=====================CORE===========================
+// =====================CORE===========================
 variable "location" {
   description = "The Azure region for resources"
   type        = string

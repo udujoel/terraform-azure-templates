@@ -14,6 +14,6 @@ resource "azurerm_dns_cname_record" "cname" {
   name                = "www"
   zone_name           = var.dns_zone
   resource_group_name = var.resource_group
-  ttl                 = 300
+  ttl                 = var.ttl
   target_resource_id  = data.azurerm_cdn_endpoint.cdn_endpoint.id
 }

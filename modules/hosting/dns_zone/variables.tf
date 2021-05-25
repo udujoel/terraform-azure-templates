@@ -1,4 +1,4 @@
-====================================================
+// ====================================================
 
 variable "resource_group" {
   description = "The Azure resource group name for resources"
@@ -6,7 +6,7 @@ variable "resource_group" {
 }
 
 
-=====================CORE===========================
+// =====================CORE===========================
 variable "domain" {
   type        = string
   description = "Top level Domain Name"

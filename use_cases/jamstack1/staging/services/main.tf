@@ -27,9 +27,9 @@ storage_account     = var.storage_account
 // Azure DNS
 //=====================================================================================================================
 
-// configure Custom domain
-module "custom_domain" {
-source              = "../../../../modules/hosting/custom_domain"
+// configure DNS zone
+module "dns_zone" {
+source              = "../../../../modules/hosting/dns_zone"
 name                = var.domain
 resource_group      = var.resource_group
 
@@ -39,9 +39,9 @@ resource_group      = var.resource_group
 module "cname_record" {
 source              = "../../../../modules/hosting/dns_cname_record"
 resource_group      = var.resource_group
-zone_name           = var.dns_zone
 ttl                 = var.ttl
-cdn_endpoint        = var.cdn_endpoint
+// zone_name           = var.dns_zone
+// cdn_endpoint        = var.cdn_endpoint
 
 }
 

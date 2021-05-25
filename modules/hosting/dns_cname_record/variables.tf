@@ -1,4 +1,4 @@
-====================================================
+// ====================================================
 
 variable "resource_group" {
   description = "The Azure resource group name for resources"
@@ -6,7 +6,7 @@ variable "resource_group" {
 }
 
 
-=====================CORE===========================
+// =====================CORE===========================
 variable "dns_zone" {
   type        = string
   description = "DNS Zone Name"
@@ -16,7 +16,7 @@ variable "cdn_endpoint" {
   description = "CDN Endpoint Name"
 }
 
-=====================Optional===========================
+// =====================Optional===========================
 variable "ttl" {
   default     = 300
   description = "Time to live"

@@ -1,4 +1,4 @@
-====================================================
+// ====================================================
 variable "location" {
   description = "The Azure region for resources"
   type        = string
@@ -10,7 +10,7 @@ variable "resource_group" {
 }
 
 
-=====================CORE===========================
+// =====================CORE===========================
 variable "profile_name" {
   type        = string
   default     = "cdn-profile"
@@ -18,7 +18,7 @@ variable "profile_name" {
 }
 
 
-======================Optional=======================
+// ======================Optional=======================
 variable "sku" {
   type        = string
   default     = "Standard_Microsoft"

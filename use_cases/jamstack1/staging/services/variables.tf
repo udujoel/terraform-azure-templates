@@ -1,4 +1,4 @@
-========================General============================
+// ========================General============================
 variable "location" {
   type        = string
   description = "The Azure region for resources"
@@ -9,7 +9,7 @@ variable "resource_group" {
   description = "The Azure resource group name for resources"
 }
 
-=====================cdn_profile===========================
+// =====================cdn_profile===========================
 variable "profile_name" {
   type        = string
   default     = "cdn-profile"
@@ -22,13 +22,13 @@ variable "sku" {
   description = "SKU name: Standard_Akamai, Standard_ChinaCdn, Standard_Microsoft, Standard_Verizon or Premium_Verizon"
 }
 
-=====================cdn_endpoint===========================
+// =====================cdn_endpoint===========================
 variable "storage_account" {
   type        = string
   description = "Storage Account Name"
 }
 
-=====================dns_cname_record===========================
+// =====================dns_cname_record===========================
 variable "dns_zone" {
   type        = string
   description = "DNS Zone Name"

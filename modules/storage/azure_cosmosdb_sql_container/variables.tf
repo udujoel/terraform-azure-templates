@@ -20,12 +20,7 @@ variable "cosmosdb_sql_database_name" {
 }
 
 
-// ======================Optional=======================
-variable "partition_key_path" {
-  type        = string
-  default     = "/definition/id"
-  description = "Partition key path"
-}
+
 
 
 

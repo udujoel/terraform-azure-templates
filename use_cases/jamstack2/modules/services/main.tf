@@ -38,7 +38,7 @@ resource "azurerm_app_service_plan" "app_service_plan" {
 
 // Azure App Service Web
 resource "azurerm_app_service" "app_service" {
-  name                = "${var.name}-appservice"
+  name                = "${var.prefix}-appservice"
   location            = var.location
   resource_group_name = var.resource_group
   app_service_plan_id = azurerm_app_service_plan.app_service_plan.id

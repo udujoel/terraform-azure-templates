@@ -1,6 +1,6 @@
-variable "name" {
+variable "prefix" {
     type = string
-    description = "Name"
+    description = "Name prefix"
 }
 variable "storage_account" {
     type = string

@@ -25,9 +25,9 @@ offer_type          = var.offer_type
 kind                = var.kind
 enable_automatic_failover = var.enable_automatic_failover
 
-geo_location {
-    location          = var.failover_location
-    }
+    geo_location {
+        location          = var.failover_location
+        }
 
 }
 

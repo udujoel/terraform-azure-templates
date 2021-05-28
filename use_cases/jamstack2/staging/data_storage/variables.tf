@@ -42,7 +42,7 @@ variable "enable_automatic_failover" {
   description = "Enable automatic fail over for this Cosmos DB account."
 }
 
-variable "failover_failover" {
+variable "failover_location" {
   type        = string
   default     = "westus"
   description = "The name of the Azure region to host replicated data."

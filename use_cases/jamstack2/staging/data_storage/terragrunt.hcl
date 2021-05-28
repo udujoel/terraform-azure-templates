@@ -17,13 +17,16 @@ include {
 }
 
 terraform {
-  source          = "../..//modules/data_storage"
+  source          = ""
   
 }
 
 inputs = {
-  storage_account     = "${replace(local.name, "-","")}"
   location            = local.location
   resource_group      = local.resource_group
+  storage_account     = "${replace(local.name, "-","")}"
+  name_prefix         = local.name  
   failover_location   = local.failover_location
+  # cosmosdb_account_name = local
+  # cosmosdb_sql_database_name = local
 }

@@ -4,6 +4,11 @@ variable "storage_account" {
   description = "Storage Account Name"
 }
 
+variable "resource_group" {
+  type        = string
+  description = "Resource group for resources"
+}
+
 
 // ======================Optional=======================
 variable "file_name" {

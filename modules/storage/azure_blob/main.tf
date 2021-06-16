@@ -1,9 +1,3 @@
-// Get existing storage account
-
-// data "azurerm_storage_account" "storage_account" {
-//   name                = var.storage_account
-//   resource_group_name = var.resource_group
-// }
 
 
 //=====================================================================================================================
@@ -16,7 +10,7 @@
 
 resource "azurerm_storage_blob" "blob" {
   name                   = var.file_name
-  storage_account_name   = module.storage_account.storage_account_name
+  storage_account_name   = var.storage_account
   storage_container_name = var.container_name
   type                   = var.type
   content_type           = var.content_type

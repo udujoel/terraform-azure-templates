@@ -11,6 +11,8 @@ storage_account     = var.storage_account
 module "azure_blob" {
 source              = "../../../../modules/storage/azure_blob"
 resource_group      = var.resource_group
-storage_account     = module.storage_account.storage_account_id
-// depends_on          = 
+storage_account     = var.storage_account
+depends_on = [
+    module.storage_account,
+  ]
 }

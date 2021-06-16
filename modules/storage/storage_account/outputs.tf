@@ -3,7 +3,7 @@ output "static_website_url" {
   description = "static web site URL from storage account"
 }
 
-output "storage_account" {
+output "storage_account_name" {
   value       = azurerm_storage_account.storage_account.name
   description = "storage account name"
 }

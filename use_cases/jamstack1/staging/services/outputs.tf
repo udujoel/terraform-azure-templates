@@ -1,4 +1,4 @@
 output "cdn_endpoint_name" {
-  value       = azurerm_cdn_endpoint.cdn_endpoint.name
+  value       = module.cdn_endpoint.cdn_endpoint_name
   description = "cdn endpoint name"
 }

@@ -6,7 +6,7 @@
 // create cdn profile
 module "cdn_profile" {
 source              = "../../../../modules/hosting/cdn_profile"
-name                = var.profile_name
+// name                = var.profile_name
 location            = var.location
 resource_group      = var.resource_group
 sku                 = var.sku

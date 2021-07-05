@@ -5,7 +5,7 @@
 
 // get cdn_endpoint data
 data "azurerm_cdn_endpoint" "cdn_endpoint" {
-  name                = var.cdn_endpoint
+  name                = module.cdn_endpoint.cdn_endpoint_name
   resource_group_name = var.resource_group
 }
 

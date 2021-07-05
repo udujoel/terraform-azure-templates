@@ -29,15 +29,15 @@ variable "storage_account" {
 }
 
 // =====================dns_cname_record===========================
-variable "dns_zone" {
-  type        = string
-  description = "DNS Zone Name"
-}
+// variable "dns_zone" {
+//   type        = string
+//   description = "DNS Zone Name"
+// }
 
-variable "cdn_endpoint" {
-  type        = string
-  description = "CDN Endpoint Name"
-}
+// variable "cdn_endpoint" {
+//   type        = string
+//   description = "CDN Endpoint Name"
+// }
 
 variable "ttl" {
   default     = 300

@@ -1,5 +1,5 @@
 // =====================CORE===========================
-variable "storage_account_name" {
+variable "storage_account" {
   type        = string
   description = "Storage Account Name"
 }
